@@ -14,6 +14,10 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+// 引入自定义路由并全局挂载
+const loginRouter = require('./router/login')
+app.use('/api', loginRouter)
+
 // 监听服务器
 app.listen(3007, () => {
         console.log('http://localhost:3007')
